@@ -30,8 +30,11 @@ brew install openssl@1.1.1
 
 Then compile the source using `g++`:
 
+
+### Build
+#### g++
 ```bash
-g++ main.cpp -o bin.out \
+g++ main.cpp -o build/bin.out \
   -std=c++17 \
   -lssl \
   -lcrypto \
@@ -40,7 +43,18 @@ g++ main.cpp -o bin.out \
   -I include/**/*.c
 ```
 
-Then run the script, passing in a path to a license file:
+#### CMake
+Generate the build directory and files:
+```bash
+cmake -S . -B build
+```
+Then compile:
+```bash
+cmake --build build
+```
+### Run
+
+Navigate to the build directory and run the script, passing in a path to a license file:
 
 ```bash
 ./bin.out /etc/keygen/license.lic
