@@ -11,6 +11,8 @@ include_directories(${CMAKE_SOURCE_DIR}/include)
 
 set(CMAKE_CXX_STANDARD 17)
 
+add_library(keygen STATIC ${ALL_SOURCES})
+
 add_executable(${BIN_NAME} main.cpp ${ALL_SOURCES})
 target_link_libraries(${BIN_NAME} OpenSSL::Crypto OpenSSL::SSL)
 
